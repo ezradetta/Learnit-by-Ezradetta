@@ -992,3 +992,23 @@ img{
     }
 
 }
+
+.backButton{
+
+    display:inline-block;
+
+    margin:20px 0;
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-weight:700;
+
+}
+
+.backButton:hover{
+
+    opacity:.8;
+
+}
