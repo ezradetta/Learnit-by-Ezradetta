@@ -91,9 +91,10 @@ function renderGames(list){
 
         card.addEventListener("click", () => {
 
-            alert(`${game.name} page coming in v0.2.0 🚀`);
+    window.location.href =
+    `game.html?game=${game.id}`;
 
-        });
+});
 
         gamesContainer.appendChild(card);
 
