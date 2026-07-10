@@ -1,1 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LearnIt</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splash">
+
+        <img src="assets/logo/logo.png" alt="LearnIt Logo">
+
+        <h1>LearnIt</h1>
+
+        <p>Gaming with Ease</p>
+
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+
+    <!-- Main App -->
+    <main id="app" class="hidden">
+
+        <div class="container">
+
+            <!-- Hero -->
+
+            <section class="hero fadeIn">
+
+                <img src="assets/logo/logo.png" alt="Logo">
+
+                <h1>LearnIt</h1>
+
+                <p>Gaming with Ease</p>
+
+            </section>
+
+            <!-- Search -->
+
+            <section class="searchBox">
+
+                <input
+                    type="text"
+                    placeholder="What do you want to learn?"
+                    id="search">
+
+            </section>
+
+            <!-- Continue Learning -->
+
+            <section class="section">
+
+                <div class="sectionHeader">
+
+                    <h2>Continue Learning</h2>
+
+                </div>
+
+                <div class="card continueCard">
+
+                    <div>
+
+                        <h3>Mobile Legends</h3>
+
+                        <p>Continue where you left off</p>
+
+                    </div>
+
+                    <button class="playButton">
+
+                        ▶
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- Popular Games -->
+
+            <section class="section">
+
+                <div class="sectionHeader">
+
+                    <h2>Popular Games</h2>
+
+                </div>
+
+                <div
+                    class="gamesGrid"
+                    id="gamesContainer">
+
+                </div>
+
+            </section>
+
+            <!-- Latest Updates -->
+
+            <section class="section">
+
+                <div class="sectionHeader">
+
+                    <h2>Latest Updates</h2>
+
+                </div>
+
+                <div
+                    id="newsContainer">
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+
+    <nav class="bottomNav">
+
+        <div class="navItem active">
+
+            🏠
+
+            <span>Home</span>
+
+        </div>
+
+        <div class="navItem">
+
+            🎮
+
+            <span>Games</span>
+
+        </div>
+
+        <div class="navItem">
+
+            🤖
+
+            <span>AI</span>
+
+        </div>
+
+        <div class="navItem">
+
+            👤
+
+            <span>Profile</span>
+
+        </div>
+
+    </nav>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
