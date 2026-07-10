@@ -1,11 +1,12 @@
 /* ==========================================
    LearnIt v0.1.0
    Foundation
+   Created by Ezradetta
 ========================================== */
 
-// -----------------------------
+// ===========================
 // Splash Screen
-// -----------------------------
+// ===========================
 
 const splash = document.getElementById("splash");
 const app = document.getElementById("app");
@@ -29,33 +30,41 @@ window.addEventListener("load", () => {
 
 });
 
-// -----------------------------
-// Games
-// -----------------------------
+// ===========================
+// Games Database
+// ===========================
 
 const games = [
 
     {
+        id: "mlbb",
         name: "Mobile Legends",
         icon: "⚔️"
     },
 
     {
+        id: "valorant",
         name: "Valorant",
         icon: "🎯"
     },
 
     {
+        id: "minecraft",
         name: "Minecraft",
         icon: "⛏️"
     },
 
     {
+        id: "cod",
         name: "Call of Duty",
         icon: "🎖️"
     }
 
 ];
+
+// ===========================
+// Render Games
+// ===========================
 
 const gamesContainer =
 document.getElementById("gamesContainer");
@@ -66,9 +75,11 @@ function renderGames(list){
 
     list.forEach(game => {
 
-        gamesContainer.innerHTML += `
+        const card = document.createElement("div");
 
-        <div class="gameTile">
+        card.className = "gameTile";
+
+        card.innerHTML = `
 
             <div class="gameIcon">
                 ${game.icon}
@@ -76,9 +87,15 @@ function renderGames(list){
 
             <h3>${game.name}</h3>
 
-        </div>
-
         `;
+
+        card.addEventListener("click", () => {
+
+            alert(`${game.name} page coming in v0.2.0 🚀`);
+
+        });
+
+        gamesContainer.appendChild(card);
 
     });
 
@@ -86,23 +103,32 @@ function renderGames(list){
 
 renderGames(games);
 
-// -----------------------------
-// News
-// -----------------------------
+// ===========================
+// News Database
+// ===========================
 
 const news = [
 
     {
-        title:"MLBB Patch Notes Released",
-        text:"See the newest hero adjustments and balance changes."
+        title: "MLBB Patch 1.9.92",
+        text: "New hero balancing and equipment changes."
     },
 
     {
-        title:"Valorant Night Market",
-        text:"Limited-time skins are now available."
+        title: "Valorant Night Market",
+        text: "Limited-time weapon skins are available."
+    },
+
+    {
+        title: "Minecraft Update",
+        text: "New blocks and survival improvements released."
     }
 
 ];
+
+// ===========================
+// Render News
+// ===========================
 
 const newsContainer =
 document.getElementById("newsContainer");
@@ -111,19 +137,21 @@ function renderNews(){
 
     newsContainer.innerHTML = "";
 
-    news.forEach(item=>{
+    news.forEach(item => {
 
-        newsContainer.innerHTML += `
+        const card = document.createElement("div");
 
-        <div class="card newsCard">
+        card.className = "card newsCard";
+
+        card.innerHTML = `
 
             <h3>${item.title}</h3>
 
             <p>${item.text}</p>
 
-        </div>
-
         `;
+
+        newsContainer.appendChild(card);
 
     });
 
@@ -131,20 +159,20 @@ function renderNews(){
 
 renderNews();
 
-// -----------------------------
+// ===========================
 // Search
-// -----------------------------
+// ===========================
 
 const search =
 document.getElementById("search");
 
-search.addEventListener("input",()=>{
+search.addEventListener("input", () => {
 
     const keyword =
     search.value.toLowerCase();
 
     const filtered =
-    games.filter(game=>
+    games.filter(game =>
 
         game.name
         .toLowerCase()
@@ -155,3 +183,28 @@ search.addEventListener("input",()=>{
     renderGames(filtered);
 
 });
+
+// ===========================
+// Bottom Navigation
+// ===========================
+
+const navItems =
+document.querySelectorAll(".navItem");
+
+navItems.forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        navItems.forEach(nav =>
+
+            nav.classList.remove("active")
+
+        );
+
+        item.classList.add("active");
+
+    });
+
+});
+
+console.log("✅ LearnIt v0.1.0 Loaded Successfully");
