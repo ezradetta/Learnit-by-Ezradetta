@@ -4,9 +4,11 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LearnIt</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>StratFounder</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -14,157 +16,138 @@
 
 <body>
 
+    <!-- ========================= -->
     <!-- Splash Screen -->
-    <div id="splash">
+    <!-- ========================= -->
 
-        <img src="assets/logo/logo.png" alt="LearnIt Logo">
+    <div id="splash-screen">
 
-        <h1>LearnIt</h1>
+        <img
+            src="assets/logo/logo.png"
+            class="splash-logo"
+            alt="Logo">
 
-        <p>Gaming with Ease</p>
+        <img
+            src="assets/logo/brand-logo.png"
+            class="brand-logo"
+            alt="StratFounder">
 
-        <div class="loader">
-            <span></span>
-            <span></span>
-            <span></span>
+        <p class="splash-motto">
+
+            Gaming with Ease
+
+        </p>
+
+        <div class="loading-container">
+
+            <div class="loading-bar"></div>
+
         </div>
+
+        <p id="loading-text">
+
+            Loading Strategies...
+
+        </p>
 
     </div>
 
-    <!-- Main App -->
-    <main id="app" class="hidden">
+    <!-- ========================= -->
+    <!-- Menu Drawer -->
+    <!-- ========================= -->
 
-        <div class="container">
+    <aside id="menu">
 
-            <!-- Hero -->
+        <div class="menu-header">
 
-            <section class="hero fadeIn">
+            <img
+                src="assets/logo/brand-logo.png"
+                alt="StratFounder">
 
-                <img src="assets/logo/logo.png" alt="Logo">
+            <p>
 
-                <h1>LearnIt</h1>
+                Gaming with Ease
 
-                <p>Gaming with Ease</p>
-
-            </section>
-
-            <!-- Search -->
-
-            <section class="searchBox">
-
-                <input
-                    type="text"
-                    placeholder="What do you want to learn?"
-                    id="search">
-
-            </section>
-
-            <!-- Continue Learning -->
-
-            <section class="section">
-
-                <div class="sectionHeader">
-
-                    <h2>Continue Learning</h2>
-
-                </div>
-
-                <div class="card continueCard">
-
-                    <div>
-
-                        <h3>Mobile Legends</h3>
-
-                        <p>Continue where you left off</p>
-
-                    </div>
-
-                    <button class="playButton">
-
-                        ▶
-
-                    </button>
-
-                </div>
-
-            </section>
-
-            <!-- Popular Games -->
-
-            <section class="section">
-
-                <div class="sectionHeader">
-
-                    <h2>Popular Games</h2>
-
-                </div>
-
-                <div
-                    class="gamesGrid"
-                    id="gamesContainer">
-
-                </div>
-
-            </section>
-
-            <!-- Latest Updates -->
-
-            <section class="section">
-
-                <div class="sectionHeader">
-
-                    <h2>Latest Updates</h2>
-
-                </div>
-
-                <div
-                    id="newsContainer">
-
-                </div>
-
-            </section>
+            </p>
 
         </div>
+
+        <div class="menu-items">
+
+            <button>🤖 StratFounder AI</button>
+
+            <button>👤 Sign In</button>
+
+            <button>📨 Mail Us</button>
+
+            <button>💡 Suggestion</button>
+
+            <button>❓ Help & Support</button>
+
+            <button>ℹ About</button>
+
+            <button>⚙ Settings</button>
+
+        </div>
+
+    </aside>
+
+    <!-- ========================= -->
+    <!-- Main App -->
+    <!-- ========================= -->
+
+    <main id="app">
+
+        <!-- Header -->
+
+        <header class="hero">
+
+            <button id="menu-btn">
+
+                ☰
+
+            </button>
+
+            <img
+                src="assets/logo/brand-logo.png"
+                class="header-logo"
+                alt="Brand Logo">
+
+        </header>
+
+        <!-- Search -->
+
+        <section class="search-section">
+
+            <input
+                type="text"
+                placeholder="Search heroes, games, guides...">
+
+        </section>
+
+        <!-- Popular Games -->
+
+        <section class="games-section">
+
+            <div class="section-title">
+
+                <h2>
+
+                    Popular Games
+
+                </h2>
+
+            </div>
+
+            <div
+                class="games-carousel"
+                id="gamesContainer">
+
+            </div>
+
+        </section>
 
     </main>
-
-    <!-- Bottom Navigation -->
-
-    <nav class="bottomNav">
-
-        <div class="navItem active">
-
-            🏠
-
-            <span>Home</span>
-
-        </div>
-
-        <div class="navItem">
-
-            🎮
-
-            <span>Games</span>
-
-        </div>
-
-        <div class="navItem">
-
-            🤖
-
-            <span>AI</span>
-
-        </div>
-
-        <div class="navItem">
-
-            👤
-
-            <span>Profile</span>
-
-        </div>
-
-    </nav>
 
     <script src="script.js"></script>
 
