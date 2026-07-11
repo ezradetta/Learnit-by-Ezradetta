@@ -1,1 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#181818">
+
+    <meta
+        name="description"
+        content="Explore Mobile Legends heroes, builds, counters, tier lists, items, emblems, and updates with StratFounder."
+    >
+
+    <title>Mobile Legends Hub — StratFounder</title>
+
+    <link rel="icon" href="../assets/logo/logo.png">
+    <link rel="apple-touch-icon" href="../assets/logo/logo.png">
+    <link rel="stylesheet" href="mlbb.css">
+</head>
+
+<body>
+    <div id="pageLoader" class="page-loader" role="status">
+        <img src="../assets/logo/logo.png" alt="">
+        <p>Opening Mobile Legends...</p>
+    </div>
+
+    <header class="top-bar">
+        <a
+            class="icon-button"
+            href="../index.html"
+            aria-label="Return to StratFounder"
+        >
+            ←
+        </a>
+
+        <div class="top-brand">
+            <img
+                src="../assets/logo/brand-logo.png"
+                alt="StratFounder"
+            >
+
+            <p>Mobile Legends Hub</p>
+        </div>
+
+        <button
+            id="pageMenuButton"
+            class="icon-button"
+            type="button"
+            aria-label="Open page menu"
+            aria-expanded="false"
+        >
+            ⋮
+        </button>
+    </header>
+
+    <div id="menuOverlay" class="menu-overlay"></div>
+
+    <aside
+        id="pageMenu"
+        class="page-menu"
+        aria-hidden="true"
+        aria-label="Mobile Legends menu"
+    >
+        <div class="menu-heading">
+            <div>
+                <strong>MLBB Hub</strong>
+                <p>Choose a section</p>
+            </div>
+
+            <button
+                id="closeMenuButton"
+                class="menu-close"
+                type="button"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
+        </div>
+
+        <nav>
+            <a href="#heroes">Heroes</a>
+            <a href="#tools">Quick Tools</a>
+            <a href="#meta">Current Meta</a>
+            <a href="#updates">Latest Updates</a>
+
+            <button
+                type="button"
+                data-coming-soon="StratFounder AI"
+            >
+                Ask StratFounder AI
+            </button>
+
+            <a href="../index.html">StratFounder Home</a>
+        </nav>
+    </aside>
+
+    <main class="page-shell">
+        <section class="game-hero">
+            <div class="game-art">
+                <img
+                    src="../assets/images/games/mlbb.png"
+                    alt="Mobile Legends"
+                >
+            </div>
+
+            <div class="game-hero-copy">
+                <p class="eyebrow">StratFounder Game Hub</p>
+                <h1>Mobile Legends</h1>
+
+                <p class="game-description">
+                    Discover heroes, counters, builds, tier rankings,
+                    equipment, emblems, and simplified patch updates.
+                </p>
+
+                <div class="game-tags" aria-label="Game information">
+                    <span>MOBA</span>
+                    <span>5v5</span>
+                    <span>Mobile</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="hub-search" aria-label="Search Mobile Legends">
+            <label class="search-field" for="mlbbSearch">
+                <span class="search-icon" aria-hidden="true"></span>
+
+                <input
+                    id="mlbbSearch"
+                    type="search"
+                    placeholder="Search heroes, roles, or guides..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="clearSearchButton"
+                    type="button"
+                    aria-label="Clear search"
+                    hidden
+                >
+                    ×
+                </button>
+            </label>
+
+            <p id="searchStatus" aria-live="polite">
+                Search the Mobile Legends hub.
+            </p>
+        </section>
+
+        <section id="tools" class="page-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Jump straight in</p>
+                    <h2>Quick Tools</h2>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <button
+                    class="feature-card purple-card"
+                    type="button"
+                    data-coming-soon="Counter Picker"
+                    data-search-item="counter picker hero matchup enemy"
+                >
+                    <span class="feature-icon">↯</span>
+
+                    <span>
+                        <strong>Counter Picker</strong>
+                        <small>Find strong picks against enemy heroes.</small>
+                    </span>
+                </button>
+
+                <button
+                    class="feature-card"
+                    type="button"
+                    data-coming-soon="Tier List"
+                    data-search-item="tier list rankings current meta"
+                >
+                    <span class="feature-icon">≡</span>
+
+                    <span>
+                        <strong>Tier List</strong>
+                        <small>Browse rankings for the current meta.</small>
+                    </span>
+                </button>
+
+                <button
+                    class="feature-card"
+                    type="button"
+                    data-coming-soon="Build Finder"
+                    data-search-item="build finder equipment items"
+                >
+                    <span class="feature-icon">◇</span>
+
+                    <span>
+                        <strong>Build Finder</strong>
+                        <small>Compare recommended equipment setups.</small>
+                    </span>
+                </button>
+
+                <button
+                    class="feature-card"
+                    type="button"
+                    data-coming-soon="Emblem Guide"
+                    data-search-item="emblems talents setup guide"
+                >
+                    <span class="feature-icon">✦</span>
+
+                    <span>
+                        <strong>Emblems</strong>
+                        <small>Choose suitable talents for each role.</small>
+                    </span>
+                </button>
+
+                <button
+                    class="feature-card"
+                    type="button"
+                    data-coming-soon="Item Database"
+                    data-search-item="items equipment database stats"
+                >
+                    <span class="feature-icon">□</span>
+
+                    <span>
+                        <strong>Items</strong>
+                        <small>Understand equipment and its effects.</small>
+                    </span>
+                </button>
+
+                <button
+                    class="feature-card"
+                    type="button"
+                    data-coming-soon="Patch Notes"
+                    data-search-item="patch notes updates buffs nerfs"
+                >
+                    <span class="feature-icon">⌁</span>
+
+                    <span>
+                        <strong>Patch Notes</strong>
+                        <small>Read simplified buffs and nerfs.</small>
+                    </span>
+                </button>
+            </div>
+        </section>
+
+        <section id="heroes" class="page-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Explore the roster</p>
+                    <h2>Popular Heroes</h2>
+                </div>
+
+                <span id="heroCount" class="result-count"></span>
+            </div>
+
+            <div
+                id="roleFilters"
+                class="role-filters"
+                aria-label="Filter heroes by role"
+            >
+                <button
+                    class="role-filter active"
+                    type="button"
+                    data-role="All"
+                >
+                    All
+                </button>
+
+                <button
+                    class="role-filter"
+                    type="button"
+                    data-role="Tank"
+                >
+                    Tank
+                </button>
+
+                <button
+                    class="role-filter"
+                    type="button"
+                    data-role="Fighter"
+                >
+                    Fighter
+                </button>
+
+                <button
+                    class="role-filter"
+                    type="button"
+                    data-role="Assassin"
+                >
+                    Assassin
+                </button>
+
+                <button
+                    class="role-filter"
+                    type="button"
+                    data-role="Mage"
+                >
+                    Mage
+                </button>
+
+                <button
+                    class="role-filter"
+                    type="button"
+                    data-role="Marksman"
+                >
+                    Marksman
+                </button>
+
+                <button
+                    class="role-filter"
+                    type="button"
+                    data-role="Support"
+                >
+                    Support
+                </button>
+            </div>
+
+            <div id="heroGrid" class="hero-grid"></div>
+
+            <div id="emptyHeroes" class="empty-state" hidden>
+                <strong>No heroes found</strong>
+                <p>Try another search or choose a different role.</p>
+            </div>
+        </section>
+
+        <section id="meta" class="page-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">At a glance</p>
+                    <h2>Current Meta</h2>
+                </div>
+            </div>
+
+            <article
+                class="meta-card"
+                tabindex="0"
+                data-coming-soon="Complete MLBB Tier List"
+                data-search-item="meta tier list jungle gold exp mid roam"
+            >
+                <div class="meta-copy">
+                    <span class="live-badge">
+                        <i aria-hidden="true"></i>
+                        Meta preview
+                    </span>
+
+                    <h3>Heroes defining ranked matches</h3>
+
+                    <p>
+                        Explore priority picks by lane and learn why
+                        they perform well in the current patch.
+                    </p>
+
+                    <span class="text-link">View full tier list →</span>
+                </div>
+
+                <div class="tier-preview" aria-hidden="true">
+                    <span class="tier-s">S</span>
+                    <span class="tier-a">A</span>
+                    <span class="tier-b">B</span>
+                </div>
+            </article>
+        </section>
+
+        <section id="updates" class="page-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Stay updated</p>
+                    <h2>Latest Changes</h2>
+                </div>
+            </div>
+
+            <div class="update-list">
+                <article
+                    class="update-card"
+                    tabindex="0"
+                    data-coming-soon="Hero Balance Changes"
+                    data-search-item="hero balance buffs nerfs latest patch"
+                >
+                    <span class="update-label">BALANCE</span>
+
+                    <div>
+                        <h3>Hero adjustments</h3>
+                        <p>
+                            Quick summaries of important buffs, nerfs,
+                            and battlefield adjustments.
+                        </p>
+                    </div>
+
+                    <span class="card-arrow">›</span>
+                </article>
+
+                <article
+                    class="update-card"
+                    tabindex="0"
+                    data-coming-soon="Equipment Changes"
+                    data-search-item="equipment changes items patch update"
+                >
+                    <span class="update-label">ITEMS</span>
+
+                    <div>
+                        <h3>Equipment changes</h3>
+                        <p>
+                            Understand which builds need updating after
+                            equipment adjustments.
+                        </p>
+                    </div>
+
+                    <span class="card-arrow">›</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="ai-banner">
+            <div class="ai-symbol" aria-hidden="true">✦</div>
+
+            <div>
+                <p class="eyebrow">Future feature</p>
+                <h2>Ask StratFounder AI</h2>
+
+                <p>
+                    Get focused answers about counters, builds,
+                    rotations, drafts, and hero matchups.
+                </p>
+            </div>
+
+            <button type="button" data-coming-soon="StratFounder AI">
+                Try AI
+            </button>
+        </section>
+
+        <footer class="page-footer">
+            <img src="../assets/logo/logo.png" alt="">
+
+            <div>
+                <strong>StratFounder</strong>
+                <p>Gaming with Ease • Created by Ezradetta</p>
+            </div>
+        </footer>
+    </main>
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+        aria-hidden="true"
+    >
+        <strong id="toastTitle">Coming soon</strong>
+        <span id="toastMessage">This feature is being prepared.</span>
+    </div>
+
+    <script src="mlbb.js"></script>
+</body>
+</html>
