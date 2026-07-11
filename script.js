@@ -1,15 +1,14 @@
 /* ==========================================
-   LearnIt v0.1.0
-   Foundation
+   StratFounder v2.0
+   Main Script
    Created by Ezradetta
-========================================== */
+==========================================*/
 
-// ===========================
-// Splash Screen
-// ===========================
+/* ==========================
+   Splash Screen
+========================== */
 
-const splash = document.getElementById("splash");
-const app = document.getElementById("app");
+const splash = document.getElementById("splash-screen");
 
 window.addEventListener("load", () => {
 
@@ -21,80 +20,98 @@ window.addEventListener("load", () => {
 
             splash.style.display = "none";
 
-            app.classList.remove("hidden");
-            app.classList.add("fadeIn");
-
         }, 500);
 
-    }, 1500);
+    }, 2200);
 
 });
 
-// ===========================
-// Games Database
-// ===========================
+
+/* ==========================
+   Menu Drawer
+========================== */
+
+const menu = document.getElementById("menu");
+const menuBtn = document.getElementById("menu-btn");
+const overlay = document.querySelector(".menu-overlay");
+
+if(menu && menuBtn && overlay){
+
+    menuBtn.addEventListener("click", () => {
+
+        menu.classList.add("active");
+        overlay.classList.add("active");
+
+    });
+
+    overlay.addEventListener("click", () => {
+
+        menu.classList.remove("active");
+        overlay.classList.remove("active");
+
+    });
+
+}
+
+
+/* ==========================
+   Games
+========================== */
 
 const games = [
 
     {
-        id: "mlbb",
-        name: "Mobile Legends",
-        icon: "⚔️"
+        id:"mlbb",
+        name:"Mobile Legends",
+        icon:"assets/images/mlbb.png"
     },
 
     {
-        id: "valorant",
-        name: "Valorant",
-        icon: "🎯"
+        id:"valorant",
+        name:"Valorant",
+        icon:"assets/images/valorant.png"
     },
 
     {
-        id: "minecraft",
-        name: "Minecraft",
-        icon: "⛏️"
+        id:"minecraft",
+        name:"Minecraft",
+        icon:"assets/images/minecraft.png"
     },
 
     {
-        id: "cod",
-        name: "Call of Duty",
-        icon: "🎖️"
+        id:"codm",
+        name:"Call of Duty",
+        icon:"assets/images/codm.png"
     }
 
 ];
 
-// ===========================
-// Render Games
-// ===========================
-
 const gamesContainer =
 document.getElementById("gamesContainer");
 
-function renderGames(list){
+if(gamesContainer){
 
-    gamesContainer.innerHTML = "";
+    games.forEach(game=>{
 
-    list.forEach(game => {
+        const card =
+        document.createElement("div");
 
-        const card = document.createElement("div");
-
-        card.className = "gameTile";
+        card.className = "game-card";
 
         card.innerHTML = `
 
-            <div class="gameIcon">
-                ${game.icon}
-            </div>
+            <img src="${game.icon}" alt="${game.name}">
 
-            <h3>${game.name}</h3>
+            <p>${game.name}</p>
 
         `;
 
-        card.addEventListener("click", () => {
+        card.onclick = ()=>{
 
-    window.location.href =
-    `game.html?game=${game.id}`;
+            window.location.href =
+            "game.html?game=" + game.id;
 
-});
+        };
 
         gamesContainer.appendChild(card);
 
@@ -102,110 +119,60 @@ function renderGames(list){
 
 }
 
-renderGames(games);
 
-// ===========================
-// News Database
-// ===========================
+/* ==========================
+   Search
+========================== */
 
-const news = [
+const search =
+document.querySelector(".search-section input");
 
-    {
-        title: "MLBB Patch 1.9.92",
-        text: "New hero balancing and equipment changes."
-    },
+if(search){
 
-    {
-        title: "Valorant Night Market",
-        text: "Limited-time weapon skins are available."
-    },
+    search.addEventListener("input", ()=>{
 
-    {
-        title: "Minecraft Update",
-        text: "New blocks and survival improvements released."
-    }
+        const keyword =
+        search.value.toLowerCase();
 
-];
+        gamesContainer.innerHTML = "";
 
-// ===========================
-// Render News
-// ===========================
+        games
+        .filter(game=>
 
-const newsContainer =
-document.getElementById("newsContainer");
+            game.name
+            .toLowerCase()
+            .includes(keyword)
 
-function renderNews(){
+        )
 
-    newsContainer.innerHTML = "";
+        .forEach(game=>{
 
-    news.forEach(item => {
+            const card =
+            document.createElement("div");
 
-        const card = document.createElement("div");
+            card.className = "game-card";
 
-        card.className = "card newsCard";
+            card.innerHTML = `
 
-        card.innerHTML = `
+                <img src="${game.icon}" alt="${game.name}">
 
-            <h3>${item.title}</h3>
+                <p>${game.name}</p>
 
-            <p>${item.text}</p>
+            `;
 
-        `;
+            card.onclick = ()=>{
 
-        newsContainer.appendChild(card);
+                window.location.href =
+                "game.html?game=" + game.id;
+
+            };
+
+            gamesContainer.appendChild(card);
+
+        });
 
     });
 
 }
 
-renderNews();
-
-// ===========================
-// Search
-// ===========================
-
-const search =
-document.getElementById("search");
-
-search.addEventListener("input", () => {
-
-    const keyword =
-    search.value.toLowerCase();
-
-    const filtered =
-    games.filter(game =>
-
-        game.name
-        .toLowerCase()
-        .includes(keyword)
-
-    );
-
-    renderGames(filtered);
-
-});
-
-// ===========================
-// Bottom Navigation
-// ===========================
-
-const navItems =
-document.querySelectorAll(".navItem");
-
-navItems.forEach(item => {
-
-    item.addEventListener("click", () => {
-
-        navItems.forEach(nav =>
-
-            nav.classList.remove("active")
-
-        );
-
-        item.classList.add("active");
-
-    });
-
-});
-
-console.log("✅ LearnIt v0.1.0 Loaded Successfully");
+console.log("✅ StratFounder Loaded Successfully");
