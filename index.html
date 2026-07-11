@@ -1,156 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+    >
 
-    <title>StratFounder</title>
+    <meta name="theme-color" content="#181818">
 
+    <meta
+        name="description"
+        content="StratFounder is an all-in-one gaming companion for guides, strategies, counters, builds, and game updates."
+    >
+
+    <title>StratFounder — Gaming with Ease</title>
+
+    <link rel="icon" href="assets/logo/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo/logo.png">
     <link rel="stylesheet" href="style.css">
 
+    <!-- Remove this line only if manifest.json does not exist. -->
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
-
-    <!-- ========================= -->
-    <!-- Splash Screen -->
-    <!-- ========================= -->
-
-    <div id="splash-screen">
-
-        <img
-            src="assets/logo/logo.png"
-            class="splash-logo"
-            alt="Logo">
-
-        <img
-            src="assets/logo/brand-logo.png"
-            class="brand-logo"
-            alt="StratFounder">
-
-        <p class="splash-motto">
-
-            Gaming with Ease
-
-        </p>
-
-        <div class="loading-container">
-
-            <div class="loading-bar"></div>
-
-        </div>
-
-        <p id="loading-text">
-
-            Loading Strategies...
-
-        </p>
-
-    </div>
-
-    <!-- ========================= -->
-    <!-- Menu Drawer -->
-    <!-- ========================= -->
-
-    <aside id="menu">
-
-        <div class="menu-header">
+    <!-- Splash screen -->
+    <div
+        id="splashScreen"
+        class="splash-screen"
+        role="status"
+        aria-live="polite"
+        aria-label="Loading StratFounder"
+    >
+        <div class="splash-content">
+            <img
+                class="splash-mascot"
+                src="assets/logo/logo.png"
+                alt=""
+            >
 
             <img
+                class="splash-wordmark"
                 src="assets/logo/brand-logo.png"
-                alt="StratFounder">
+                alt="StratFounder"
+            >
 
-            <p>
-
-                Gaming with Ease
-
-            </p>
-
-        </div>
-
-        <div class="menu-items">
-
-            <button>🤖 StratFounder AI</button>
-
-            <button>👤 Sign In</button>
-
-            <button>📨 Mail Us</button>
-
-            <button>💡 Suggestion</button>
-
-            <button>❓ Help & Support</button>
-
-            <button>ℹ About</button>
-
-            <button>⚙ Settings</button>
-
-        </div>
-
-    </aside>
-
-    <!-- ========================= -->
-    <!-- Main App -->
-    <!-- ========================= -->
-
-    <main id="app">
-
-        <!-- Header -->
-
-        <header class="hero">
-
-            <button id="menu-btn">
-
-                ☰
-
-            </button>
-
-            <img
-                src="assets/logo/brand-logo.png"
-                class="header-logo"
-                alt="Brand Logo">
-
-        </header>
-
-        <!-- Search -->
-
-        <section class="search-section">
-
-            <input
-                type="text"
-                placeholder="Search heroes, games, guides...">
-
-        </section>
-
-        <!-- Popular Games -->
-
-        <section class="games-section">
-
-            <div class="section-title">
-
-                <h2>
-
-                    Popular Games
-
-                </h2>
-
-            </div>
+            <p class="splash-tagline">Gaming with Ease</p>
 
             <div
-                class="games-carousel"
-                id="gamesContainer">
-
+                class="loading-track"
+                role="progressbar"
+                aria-label="Application loading progress"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+            >
+                <div id="loadingBar" class="loading-bar"></div>
             </div>
 
-        </section>
+            <div class="loading-details">
+                <p id="loadingText">Preparing StratFounder...</p>
+                <span id="loadingPercent">0%</span>
+            </div>
+        </div>
+    </div>
 
-    </main>
+    <!-- Drawer backdrop -->
+    <div
+        id="drawerOverlay"
+        class="drawer-overlay"
+        aria-hidden="true"
+    ></div>
+
+    <!-- Navigation drawer -->
+    <aside
+        id="drawer"
+        class="drawer"
+        aria-label="Main menu"
+        aria-hidden="true"
+    >
+        <div class="drawer-top">
+            <div class="drawer-brand">
+                <img
+                    src="assets/logo/brand-logo.png"
+                    alt="StratFounder"
+                >
+
+                <p>Gaming with Ease</p>
+            </div>
+
+            <button
+                id="closeDrawerButton"
+                class="icon-button drawer-close"
+                type="button"
+                aria-label="Close menu"
+            >
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+
+        <nav class="drawer-navigation" aria-label="StratFounder sections">
+            <a class="drawer-link is-current" href="#home">
+                <span class="drawer-link-icon" aria-hidden="true">⌂</span>
+
+                <span>
+                    <strong>Home</strong>
+                    <small>Return to the main screen</small>
+                </span>
+            </a>
+
+            <a class="drawer-link" href="#popularGames">
+                <span class="drawer-link-icon" aria-hidden="true">◈</span>
+
+                <span>
+                    <strong>Games</strong>
+                    <small>Browse supported games</small>
+                </span>
+            </a>
+
+            <button
+                class="drawer-link"
+                type="button"
+                data-coming-soon="StratFounder AI"
+            >
+                <span class="drawer-link-icon" aria-hidden="true">✦</span>
+
+                <span>
+                    <strong>StratFounder AI</strong>
+                    <small>Ask your gaming assistant</small>
+                </span>
+            </button>
+
+            <button
+                class="drawer-link"
+                type="button"
+                data-coming-soon="Sign In"
+            >
+                <span class="drawer-link-icon" aria-hidden="true">●</span>
+
+                <span>
+                    <strong>Sign In</strong>
+                    <small>Sync progress and favorites</small>
+                </span>
+            </button>
+
+            <a
+                class="drawer-link drawer-link-mail"
+                href="mailto:ezradetta@example.com?subject=StratFounder"
+            >
+                <span class="drawer-image-icon">
+                    <img
+                        src="assets/logo/mail-us.png"
+                        alt=""
+                    >
+                </span>
+
+                <span>
+                    <strong>Mail Us</strong>
+                    <small>Contact the StratFounder team</small>
+                </span>
+            </a>
+
+            <button
+                class="drawer-link"
+                type="button"
+                data-coming-soon="Submit Suggestion"
+            >
+                <span class="drawer-link-icon" aria-hidden="true">＋</span>
+
+                <span>
+                    <strong>Submit Suggestion</strong>
+                    <small>Help shape future updates</small>
+                </span>
+            </button>
+
+            <button
+                class="drawer-link"
+                type="button"
+                data-coming-soon="Help & Support"
+            >
+                <span class="drawer-link-icon" aria-hidden="true">?</span>
+
+                <span>
+                    <strong>Help &amp; Support</strong>
+                    <small>Find assistance and answers</small>
+                </span>
+            </button>
+
+            <button
+                class="drawer-link"
+                type="button"
+                data-coming-soon="About"
+            >
+                <span class="drawer-link-icon" aria-hidden="true">i</span>
+
+                <span>
+                    <strong>About</strong>
+                    <small>Discover the StratFounder story</small>
+                </span>
+            </button>
+
+            <button
+                class="drawer-link"
+                type="button"
+                data-coming-soon="Settings"
+            >
+                <span class="drawer-link-icon" aria-hidden="true">⚙</span>
+
+                <span>
+                    <strong>Settings</strong>
+                    <small>Personalize your experience</small>
+                </span>
+            </button>
+        </nav>
+
+        <footer class="drawer-footer">
+            <p>StratFounder v2.0.0</p>
+            <p>Created by Ezradetta</p>
+        </footer>
+    </aside>
+
+    <!-- Application -->
+    <div id="appShell" class="app-shell">
+        <main id="home" class="app-content">
+            <!-- Header -->
+            <header class="app-header">
+                <button
+                    id="openDrawerButton"
+                    class="icon-button menu-button"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-controls="drawer"
+                    aria-expanded="false"
+                >
+                    <span class="hamburger" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+
+                <div class="header-brand">
+                    <img
+                        src="assets/logo/brand-logo.png"
+                        alt="StratFounder"
+                    >
+
+                    <p>
+                        Gaming with Ease
+                        <span aria-hidden="true">•</span>
+                        Brought to you by Ezradetta
+                    </p>
+                </div>
+            </header>
+
+            <div class="brand-divider" aria-hidden="true"></div>
+
+            <!-- Search -->
+            <section class="search-area" aria-label="Search StratFounder">
+                <label class="search-field" for="globalSearch">
+                    <span class="search-icon" aria-hidden="true"></span>
+
+                    <input
+                        id="globalSearch"
+                        type="search"
+                        placeholder="Search games, guides, tools..."
+                        autocomplete="off"
+                        enterkeyhint="search"
+                    >
+
+                    <button
+                        id="clearSearchButton"
+                        class="clear-search"
+                        type="button"
+                        aria-label="Clear search"
+                        hidden
+                    >
+                        ×
+                    </button>
+                </label>
+
+                <p id="searchStatus" class="search-status" aria-live="polite">
+                    Search across games, guides, updates, and tools.
+                </p>
+            </section>
+
+            <!-- Popular games -->
+            <section
+                id="popularGames"
+                class="home-section"
+                data-search-section="games"
+            >
+                <div class="section-heading">
+                    <div>
+                        <p class="section-eyebrow">Choose your world</p>
+                        <h1>Popular Games</h1>
+                    </div>
+
+                    <span class="swipe-hint">Swipe →</span>
+                </div>
+
+                <div
+                    id="gamesCarousel"
+                    class="game-carousel"
+                    aria-label="Popular games"
+                ></div>
+
+                <div id="noGameResults" class="empty-state" hidden>
+                    <strong>No matching games</strong>
+                    <p>Try another search or explore the sections below.</p>
+                </div>
+            </section>
+
+            <!-- Quick tools -->
+            <section
+                class="home-section searchable-section"
+                data-search-section="tools"
+                data-search-terms="quick tools counter picker builds tier list patch notes"
+            >
+                <div class="section-heading">
+                    <div>
+                        <p class="section-eyebrow">Fast access</p>
+                        <h2>Quick Tools</h2>
+                    </div>
+                </div>
+
+                <div class="tool-grid">
+                    <button
+                        class="tool-card"
+                        type="button"
+                        data-coming-soon="Counter Picker"
+                        data-search-item="counter picker matchups enemies"
+                    >
+                        <span class="tool-symbol" aria-hidden="true">↯</span>
+
+                        <span>
+                            <strong>Counter Picker</strong>
+                            <small>Find stronger matchup choices</small>
+                        </span>
+                    </button>
+
+                    <button
+                        class="tool-card"
+                        type="button"
+                        data-coming-soon="Build Finder"
+                        data-search-item="build finder items equipment"
+                    >
+                        <span class="tool-symbol" aria-hidden="true">◇</span>
+
+                        <span>
+                            <strong>Build Finder</strong>
+                            <small>Explore recommended equipment</small>
+                        </span>
+                    </button>
+
+                    <button
+                        class="tool-card"
+                        type="button"
+                        data-coming-soon="Tier Lists"
+                        data-search-item="tier lists rankings meta"
+                    >
+                        <span class="tool-symbol" aria-hidden="true">≡</span>
+
+                        <span>
+                            <strong>Tier Lists</strong>
+                            <small>See what dominates the meta</small>
+                        </span>
+                    </button>
+
+                    <button
+                        class="tool-card"
+                        type="button"
+                        data-coming-soon="Patch Notes"
+                        data-search-item="patch notes latest updates changes"
+                    >
+                        <span class="tool-symbol" aria-hidden="true">⌁</span>
+
+                        <span>
+                            <strong>Patch Notes</strong>
+                            <small>Catch up on the latest changes</small>
+                        </span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Trending guides -->
+            <section
+                class="home-section searchable-section"
+                data-search-section="guides"
+                data-search-terms="trending guides mobile legends hayabusa valorant codm minecraft"
+            >
+                <div class="section-heading">
+                    <div>
+                        <p class="section-eyebrow">Players are reading</p>
+                        <h2>Trending Guides</h2>
+                    </div>
+                </div>
+
+                <div class="content-list">
+                    <article
+                        class="content-card"
+                        tabindex="0"
+                        data-coming-soon="Hayabusa Counter Guide"
+                        data-search-item="hayabusa counter guide mobile legends mlbb assassin"
+                    >
+                        <span class="content-number">01</span>
+
+                        <div>
+                            <p class="content-category">Mobile Legends</p>
+                            <h3>How to counter Hayabusa</h3>
+                            <p>Draft choices and positioning tips for surviving his burst.</p>
+                        </div>
+
+                        <span class="content-arrow" aria-hidden="true">›</span>
+                    </article>
+
+                    <article
+                        class="content-card"
+                        tabindex="0"
+                        data-coming-soon="Valorant Aim Guide"
+                        data-search-item="valorant aim guide crosshair accuracy"
+                    >
+                        <span class="content-number">02</span>
+
+                        <div>
+                            <p class="content-category">Valorant</p>
+                            <h3>Build a consistent aim routine</h3>
+                            <p>A short warm-up designed for players with limited time.</p>
+                        </div>
+
+                        <span class="content-arrow" aria-hidden="true">›</span>
+                    </article>
+
+                    <article
+                        class="content-card"
+                        tabindex="0"
+                        data-coming-soon="CODM Loadout Guide"
+                        data-search-item="codm call of duty loadout guide weapons"
+                    >
+                        <span class="content-number">03</span>
+
+                        <div>
+                            <p class="content-category">Call of Duty Mobile</p>
+                            <h3>Reliable ranked loadouts</h3>
+                            <p>Balanced setups for aggressive and controlled playstyles.</p>
+                        </div>
+
+                        <span class="content-arrow" aria-hidden="true">›</span>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Latest updates -->
+            <section
+                class="home-section searchable-section"
+                data-search-section="updates"
+                data-search-terms="latest updates patches games news mobile legends valorant minecraft codm"
+            >
+                <div class="section-heading">
+                    <div>
+                        <p class="section-eyebrow">Stay informed</p>
+                        <h2>Latest Updates</h2>
+                    </div>
+                </div>
+
+                <article
+                    class="featured-update"
+                    tabindex="0"
+                    data-coming-soon="Latest Game Updates"
+                    data-search-item="latest game updates balance changes patch notes"
+                >
+                    <div class="featured-update-copy">
+                        <span class="status-pill">
+                            <span aria-hidden="true"></span>
+                            New
+                        </span>
+
+                        <h3>Game updates, without the wall of text.</h3>
+
+                        <p>
+                            StratFounder will turn long patch notes into quick,
+                            useful summaries for players.
+                        </p>
+
+                        <span class="text-link">Explore updates →</span>
+                    </div>
+
+                    <div class="featured-mark" aria-hidden="true">SF</div>
+                </article>
+            </section>
+
+            <!-- Continue exploring -->
+            <section
+                class="home-section searchable-section"
+                data-search-section="explore"
+                data-search-terms="continue exploring artificial intelligence favorites saved guides account"
+            >
+                <div class="section-heading">
+                    <div>
+                        <p class="section-eyebrow">Coming to StratFounder</p>
+                        <h2>Continue Exploring</h2>
+                    </div>
+                </div>
+
+                <div class="explore-grid">
+                    <button
+                        class="explore-card explore-card-highlight"
+                        type="button"
+                        data-coming-soon="StratFounder AI"
+                        data-search-item="stratfounder ai assistant questions coach"
+                    >
+                        <span class="explore-icon" aria-hidden="true">✦</span>
+                        <strong>Ask StratFounder AI</strong>
+                        <small>Get focused answers for your game.</small>
+                    </button>
+
+                    <button
+                        class="explore-card"
+                        type="button"
+                        data-coming-soon="Saved Guides"
+                        data-search-item="saved guides favorites bookmark"
+                    >
+                        <span class="explore-icon" aria-hidden="true">☆</span>
+                        <strong>Saved Guides</strong>
+                        <small>Return to your favorite strategies.</small>
+                    </button>
+                </div>
+            </section>
+
+            <footer class="home-footer">
+                <img src="assets/logo/logo.png" alt="">
+
+                <div>
+                    <strong>StratFounder</strong>
+                    <p>Gaming with Ease • Created by Ezradetta</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Non-blocking app notification -->
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+        aria-hidden="true"
+    >
+        <strong id="toastTitle">Coming soon</strong>
+        <span id="toastMessage">This feature is being prepared.</span>
+    </div>
 
     <script src="script.js"></script>
-
 </body>
-
 </html>
